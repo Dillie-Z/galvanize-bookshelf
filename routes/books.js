@@ -52,22 +52,22 @@ router.patch('/:id', (req, res, _next) => {
             if (!book) {
                 return next();
             }
-            const { title ,author ,genre ,description , coverUrl } = req.body;
+            // const { title ,author ,genre ,description , coverUrl } = req.body;
             const updateBook = {}
             if (title) {
-                updateBook.title = title;
+                updateBook.title = req.body.title;
             }
             if (author) {
-                updateBook.author = author;
+                updateBook.author = req.body.author;
             }
             if (genre) {
-                updateBook.genre = genre;
+                updateBook.genre = req.body.genre;
             }
             if (description) {
-                updateBook.description = description;
+                updateBook.description = req.body.description;
             }
             if (coverUrl) {
-                updateBook.coverUrl = coverUrl;
+                updateBook.coverUrl = req.body.coverUrl;
             }
             return knex('books')
                 .update(humps.decamelizeKeys(updateBook), '*')
