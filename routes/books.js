@@ -52,8 +52,8 @@ router.patch('/:id', (req, res, _next) => {
             if (!book) {
                 return next();
             }
-            let {title,author,genre,description,coverUrl} = req.body;
-            let updateBook = {}
+            const {title,author,genre,description,coverUrl} = req.body;
+            const updateBook = {}
             if (title) {
                 updateBook.title = title;
             }
