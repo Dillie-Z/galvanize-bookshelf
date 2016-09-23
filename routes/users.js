@@ -8,24 +8,24 @@ const router = express.Router();
 // YOUR CODE HERE
 
 router.post('/', (req, res, next) => {
-    let {
-        email,
-        password
-    } = req.body;
+    // let {
+    //     email,
+    //     password
+    // } = req.body;
     knex('users')
-        .where('email', email)
+        .where('email', req.body.email)
         .first()
         .then(() => {
-            return bcrypt.hashSync(password, 12);
+            return bcrypt.hashSync(req.body.password, 12);
         })
         .then((hashedPassword) => {
-            let {
-                firstName,
-                lastName
-            } = req.body;
+            // let {
+            //     firstName,
+            //     lastName
+            // } = req.body;
             let insertNewUser = {
-                firstName: firstName,
-                lastName: lastName,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
                 email: email,
                 hashedPassword: hashedPassword
             }
