@@ -52,13 +52,7 @@ router.patch('/:id', (req, res, _next) => {
             if (!book) {
                 return next();
             }
-            let {
-                title,
-                author,
-                genre,
-                description,
-                coverUrl
-            } = req.body;
+            let {title,author,genre,description,coverUrl} = req.body;
             let updateBook = {}
             if (title) {
                 updateBook.title = title;
