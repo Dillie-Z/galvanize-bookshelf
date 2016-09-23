@@ -4,8 +4,6 @@ const express = require('express');
 const boom = require('boom');
 const humps = require('humps');
 const bcrypt = require('bcrypt');
-
-// eslint-disable-next-line new-cap
 const router = express.Router();
 
 
