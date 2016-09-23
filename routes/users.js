@@ -26,7 +26,7 @@ router.post('/', (req, res, next) => {
             let insertNewUser = {
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
-                email: email,
+                email: req.body.email,
                 hashedPassword: hashedPassword
             }
             return knex('users')
